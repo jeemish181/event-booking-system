@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>EventHub · PSG Tech CSEA</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-bright":"#353943","on-secondary-fixed":"#001f26","on-surface-variant":"#c7c4d7","primary-fixed":"#e1e0ff","on-primary":"#1000a9","on-error-container":"#ffdad6","on-primary-fixed-variant":"#2f2ebe","on-background":"#dfe2ef","secondary-fixed":"#acedff","on-primary-container":"#0d0096","outline-variant":"#464554","surface-tint":"#c0c1ff","on-tertiary-fixed-variant":"#005236","background":"#0f131c","inverse-on-surface":"#2c303a","surface-container-lowest":"#0a0e17","on-tertiary-container":"#000703","on-primary-fixed":"#07006c","on-tertiary-fixed":"#002113","inverse-surface":"#dfe2ef","tertiary-container":"#00885d","surface-variant":"#31353f","surface-container-highest":"#31353f","tertiary":"#4edea3","inverse-primary":"#494bd6","error-container":"#93000a","tertiary-fixed-dim":"#4edea3","outline":"#908fa0","surface-container-high":"#262a34","surface-dim":"#0f131c","on-surface":"#dfe2ef","on-tertiary":"#003824","secondary":"#4cd7f6","on-secondary":"#003640","primary":"#c0c1ff","surface-container":"#1c1f29","secondary-fixed-dim":"#4cd7f6","primary-fixed-dim":"#c0c1ff","on-error":"#690005","error":"#ffb4ab","surface":"#0f131c","secondary-container":"#03b5d3","primary-container":"#8083ff","on-secondary-fixed-variant":"#004e5c","surface-container-low":"#181b25","tertiary-fixed":"#6ffbbe","on-secondary-container":"#00424e"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"grid-margin-mobile":"1rem","gutter-desktop":"1.5rem","grid-margin-desktop":"3.5rem","seat-gap-x":"0.375rem","space-3xl":"4.5rem","space-2xl":"3rem","space-md":"1rem","space-xs":"0.5rem","grid-margin-tablet":"2rem","space-lg":"1.5rem","space-2xs":"0.25rem","space-xl":"2rem","seat-gap-y":"0.5rem","space-sm":"0.75rem","gutter-mobile":"0.75rem"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-xl":["Space Grotesk"],"headline-sm":["Space Grotesk"],"label-code-md":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"label-seat-tag":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"display-xl-mobile":["Space Grotesk"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-code-md":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-seat-tag":["10px",{"lineHeight":"12px","letterSpacing":"0.05em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-background min-h-screen flex flex-col justify-center items-center"><main class="w-full flex items-center justify-center min-h-screen"><div class="flex flex-col w-full">
+<div class="relative w-full min-h-[92vh] flex items-center justify-center p-4 sm:p-6 lg:p-12 overflow-hidden bg-background">
+<!-- Ambient Holographic & Grid Backdrop Layer -->
+<div class="absolute inset-0 pointer-events-none select-none">
+<!-- High-tech circuit / architectural grid pattern -->
+<svg class="absolute inset-0 w-full h-full opacity-10 text-outline" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="48" id="matrix-grid" patternunits="userSpaceOnUse" width="48">
+<path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" stroke-dasharray="3 3" stroke-width="0.75"></path>
+<circle cx="0" cy="0" fill="currentColor" r="1.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#matrix-grid)" height="100%" width="100%"></rect>
+</svg>
+<!-- Dual Photon Glow Orbs -->
+<div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-secondary-container opacity-25 blur-3xl filter animate-pulse"></div>
+<div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-primary-container opacity-20 blur-3xl filter"></div>
+<div class="absolute top-12 right-1/4 w-64 h-64 rounded-full bg-tertiary-container opacity-15 blur-2xl filter"></div>
+</div>
+<!-- Floating Live Campus Ticker / Status Indicators (Background Ambience) -->
+<div class="hidden lg:flex absolute top-12 left-14 items-center gap-3 py-2 px-4 rounded-full bg-surface-container-low/80 backdrop-blur-md shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface">AUDITORIUM HALL 2 · FAST FILLING</span>
+</div>
+<!-- Interactive Atmosphere Pills (Academic Highlights) -->
+<div class="hidden xl:flex flex-col gap-3 absolute top-28 right-16 pointer-events-none select-none">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container/75 backdrop-blur-md shadow-md text-on-surface-variant font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+<span>CSEA CODEnVIBE EVENT 2026 • Slot Booking Live</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container/75 backdrop-blur-md shadow-md text-on-surface-variant font-label-code-sm text-label-code-sm ml-6">
+<span class="material-symbols-outlined text-tertiary text-sm">bolt</span>
+<span>AI Summit • 84 Seats Reserved</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container/75 backdrop-blur-md shadow-md text-on-surface-variant font-label-code-sm text-label-code-sm -ml-2">
+<span class="material-symbols-outlined text-primary text-sm">stars</span>
+<span>Fireside Chat w/ DeepMind Alumni</span>
+</div>
+</div>
+<!-- Main Authentication Glassmorphic Shell -->
+<div class="relative z-10 w-full max-w-xl mx-auto flex flex-col rounded-xl bg-surface-container-low/90 backdrop-blur-2xl shadow-xl overflow-hidden">
+<!-- Subtle Brand Accent Bar -->
+<div class="h-1.5 w-full bg-gradient-to-r from-secondary via-primary-container to-tertiary"></div>
+<div class="p-6 sm:p-10 flex flex-col gap-6">
+<!-- Brand Identity & Header -->
+<div class="flex flex-col items-center text-center gap-3">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-secondary-container via-primary-container to-secondary flex items-center justify-center shadow-md">
+<img alt="EventHub Icon" class="w-8 h-8 object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida/AEtjO1Ul4kV3kILsW6X_KUMJd8qZKSozQ-KHu4emhdfKbDadz5bpuhmj5fJzdbinqhEwHlGnhh9i6Et4bwLLg0_vRJog6QLXS39X1gzy8iO8yd-Jgl_PTjOT8UHkB7GJktsrcTPD-Ci73Fg7YFIZRLmMAHcRrqACg2uIrwz0hXwNEhmTpyqUPd53Z9yZm4hWbyy140eXCsEYHDpw7bAuDHPRHgjMJKTFvIIyEMVdYzI5rFdmVvz4BaalrntNWv8"/>
+</div>
+<div class="flex flex-col items-start leading-none">
+<span class="font-display-xl text-headline-md tracking-tight text-on-surface">EventHub</span>
+<span class="font-label-code-sm text-label-code-sm tracking-wider text-secondary">PSG TECH · CSEA</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 mt-2">
+<h1 class="font-headline-md text-headline-md text-on-surface">Welcome to EventHub</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mx-auto">
+              Sign in with your PSG Tech Roll Number or Student Webmail to reserve auditorium seats and passes.
+            </p>
+</div>
+</div>
+<!-- Role Category Selector -->
+<div class="flex flex-col gap-2">
+<label class="font-label-code-sm text-label-code-sm text-outline uppercase tracking-wider flex items-center justify-between">
+<span>Select Access Domain</span>
+<span class="text-tertiary font-label-seat-tag text-label-seat-tag">STUDENT VERIFIED</span>
+</label>
+<div class="grid grid-cols-3 gap-2 p-1 rounded-xl bg-surface-container-highest/60" id="roleGroup">
+<button class="role-pill active-role relative py-2 px-2.5 rounded-lg font-body-sm text-body-sm font-semibold transition-all duration-200 bg-secondary-container text-on-secondary-container shadow-sm flex items-center justify-center gap-1.5" data-role="student" type="button">
+<span class="material-symbols-outlined text-base">school</span>
+<span class="truncate">Student</span>
+</button>
+<button class="role-pill py-2 px-2.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all duration-200 flex items-center justify-center gap-1.5" data-role="core" type="button">
+<span class="material-symbols-outlined text-base">badge</span>
+<span class="truncate">CSEA Core</span>
+</button>
+<button class="role-pill py-2 px-2.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all duration-200 flex items-center justify-center gap-1.5" data-role="faculty" type="button">
+<span class="material-symbols-outlined text-base">workspace_premium</span>
+<span class="truncate">Faculty</span>
+</button>
+</div>
+</div>
+<!-- Authentication Form -->
+<form class="flex flex-col gap-4" id="authForm" onsubmit="event.preventDefault();">
+<!-- Roll Number / Email Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-code-sm text-label-code-sm text-on-surface-variant" for="identifierInput">
+              Roll Number or College Email
+            </label>
+<div class="relative flex items-center">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg">fingerprint</span>
+</div>
+<input class="w-full bg-surface-container text-on-surface placeholder:text-outline font-label-code-md text-label-code-md rounded-xl pl-11 pr-24 py-3 shadow-inner focus:outline-none focus:bg-surface-bright transition-all duration-150" id="identifierInput" placeholder="25Z332 or user@psgtech.ac.in" type="text"/>
+<span class="absolute right-3.5 px-2 py-0.5 rounded bg-surface-variant text-outline font-label-seat-tag text-label-seat-tag select-none">
+                PSG TECH
+              </span>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-code-sm text-label-code-sm text-on-surface-variant" for="passwordInput">
+              Account Password
+            </label>
+<div class="relative flex items-center">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg">lock</span>
+</div>
+<input class="w-full bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md rounded-xl pl-11 pr-12 py-3 shadow-inner focus:outline-none focus:bg-surface-bright transition-all duration-150" id="passwordInput" placeholder="••••••••••••" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-3 p-1 rounded-lg text-outline hover:text-on-surface transition-colors focus:outline-none" id="togglePasswordBtn" type="button">
+<span class="material-symbols-outlined text-lg" id="eyeIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Helper Row (Remember & Recovery) -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface-container text-secondary-container focus:ring-0 cursor-pointer accent-secondary" id="rememberDevice" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Remember device</span>
+</label>
+<a class="font-label-code-sm text-label-code-sm text-secondary hover:text-primary transition-colors" href="javascript:void(0)">
+              Forgot password?
+            </a>
+</div>
+<!-- Primary Submit Action -->
+<button class="relative mt-2 group overflow-hidden w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-primary-container via-primary-fixed-dim to-secondary font-headline-sm text-headline-sm font-semibold text-on-primary shadow-lg hover:shadow-secondary/20 transition-all duration-300 transform active:scale-[0.99] flex items-center justify-center gap-2" id="signInButton" type="submit">
+<span class="relative z-10 flex items-center gap-2">
+<span>Sign In to EventHub</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
+</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
+</button>
+</form>
+<!-- Divider with Architectural Node -->
+<div class="relative flex items-center justify-center my-1">
+<div class="w-full h-px bg-surface-variant"></div>
+<span class="absolute px-3 bg-surface-container-low font-label-code-sm text-label-code-sm text-outline uppercase tracking-widest">
+            Fast Track
+          </span>
+</div>
+<!-- Quick Demo One-Click Access -->
+<div class="flex flex-col gap-2">
+<button class="w-full p-3.5 rounded-xl bg-surface-container hover:bg-surface-bright transition-all duration-200 text-left flex items-center justify-between group shadow-sm" id="demoStudentBtn" type="button">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-label-code-md text-label-code-md font-bold">
+                AS
+              </div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary transition-colors">
+                  One-Click Demo: Aanya Sharma
+                </span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">
+                  25Z332 · CSE III Year (Student Rep)
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-highest text-secondary font-label-code-sm text-label-code-sm">
+<span>Fill Credentials</span>
+<span class="material-symbols-outlined text-sm">bolt</span>
+</div>
+</button>
+</div>
+<!-- Footnote & Security Clearance -->
+<div class="flex flex-col items-center gap-3 pt-2 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            New to CSEA events?
+            <a class="font-semibold text-secondary hover:underline ml-1" href="javascript:void(0)">
+              Activate with College Webmail
+            </a>
+</p>
+<!-- Security Badge -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest text-outline font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-tertiary text-sm">verified_user</span>
+<span>Secured via PSG Tech CAS Central • 256-bit TLS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    (function () {
+      // Toggle Password Visibility
+      const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+      const passwordInput = document.getElementById('passwordInput');
+      const eyeIcon = document.getElementById('eyeIcon');
+
+      if (togglePasswordBtn && passwordInput && eyeIcon) {
+        togglePasswordBtn.addEventListener('click', function () {
+          const isPassword = passwordInput.getAttribute('type') === 'password';
+          passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+          eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+        });
+      }
+
+      // Role Pill Selector Interactions
+      const rolePills = document.querySelectorAll('.role-pill');
+      rolePills.forEach(pill => {
+        pill.addEventListener('click', function () {
+          rolePills.forEach(p => {
+            p.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'shadow-sm');
+            p.classList.add('text-on-surface-variant');
+          });
+          this.classList.remove('text-on-surface-variant');
+          this.classList.add('bg-secondary-container', 'text-on-secondary-container', 'shadow-sm');
+          
+          const identifierInput = document.getElementById('identifierInput');
+          const role = this.getAttribute('data-role');
+          if (role === 'core') {
+            identifierInput.placeholder = 'core.csea@psgtech.ac.in';
+          } else if (role === 'faculty') {
+            identifierInput.placeholder = 'faculty.cse@psgtech.ac.in';
+          } else {
+            identifierInput.placeholder = '25Z332 or user@psgtech.ac.in';
+          }
+        });
+      });
+
+      // Quick Demo Student Autologin Fill
+      const demoBtn = document.getElementById('demoStudentBtn');
+      if (demoBtn) {
+        demoBtn.addEventListener('click', function () {
+          const idInput = document.getElementById('identifierInput');
+          const passInput = document.getElementById('passwordInput');
+          if (idInput && passInput) {
+            idInput.value = '25Z332@psgtech.ac.in';
+            passInput.value = 'psgtech#csea2026';
+            
+            // Visual feedback pulse
+            demoBtn.classList.add('scale-[0.98]');
+            setTimeout(() => demoBtn.classList.remove('scale-[0.98]'), 150);
+          }
+        });
+      }
+
+      // Form submission feedback
+      const authForm = document.getElementById('authForm');
+      const signInButton = document.getElementById('signInButton');
+      if (authForm && signInButton) {
+        authForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const originalContent = signInButton.innerHTML;
+          signInButton.innerHTML = `
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined animate-spin">progress_activity</span>
+              <span>Authenticating Session...</span>
+            </span>
+          `;
+          setTimeout(() => {
+            signInButton.innerHTML = `
+              <span class="flex items-center gap-2 text-on-primary">
+                <span class="material-symbols-outlined">check_circle</span>
+                <span>Access Granted</span>
+              </span>
+            `;
+            setTimeout(() => {
+              signInButton.innerHTML = originalContent;
+            }, 1800);
+          }, 800);
+        });
+      }
+    })();
+  </script>
+</div></main></body></html>

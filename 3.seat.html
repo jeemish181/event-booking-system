@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>EventHub · PSG Tech CSEA</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-bright":"#353943","on-secondary-fixed":"#001f26","on-surface-variant":"#c7c4d7","primary-fixed":"#e1e0ff","on-primary":"#1000a9","on-error-container":"#ffdad6","on-primary-fixed-variant":"#2f2ebe","on-background":"#dfe2ef","secondary-fixed":"#acedff","on-primary-container":"#0d0096","outline-variant":"#464554","surface-tint":"#c0c1ff","on-tertiary-fixed-variant":"#005236","background":"#0f131c","inverse-on-surface":"#2c303a","surface-container-lowest":"#0a0e17","on-tertiary-container":"#000703","on-primary-fixed":"#07006c","on-tertiary-fixed":"#002113","inverse-surface":"#dfe2ef","tertiary-container":"#00885d","surface-variant":"#31353f","surface-container-highest":"#31353f","tertiary":"#4edea3","inverse-primary":"#494bd6","error-container":"#93000a","tertiary-fixed-dim":"#4edea3","outline":"#908fa0","surface-container-high":"#262a34","surface-dim":"#0f131c","on-surface":"#dfe2ef","on-tertiary":"#003824","secondary":"#4cd7f6","on-secondary":"#003640","primary":"#c0c1ff","surface-container":"#1c1f29","secondary-fixed-dim":"#4cd7f6","primary-fixed-dim":"#c0c1ff","on-error":"#690005","error":"#ffb4ab","surface":"#0f131c","secondary-container":"#03b5d3","primary-container":"#8083ff","on-secondary-fixed-variant":"#004e5c","surface-container-low":"#181b25","tertiary-fixed":"#6ffbbe","on-secondary-container":"#00424e"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"grid-margin-mobile":"1rem","gutter-desktop":"1.5rem","grid-margin-desktop":"3.5rem","seat-gap-x":"0.375rem","space-3xl":"4.5rem","space-2xl":"3rem","space-md":"1rem","space-xs":"0.5rem","grid-margin-tablet":"2rem","space-lg":"1.5rem","space-2xs":"0.25rem","space-xl":"2rem","seat-gap-y":"0.5rem","space-sm":"0.75rem","gutter-mobile":"0.75rem"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-xl":["Space Grotesk"],"headline-sm":["Space Grotesk"],"label-code-md":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"label-seat-tag":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"display-xl-mobile":["Space Grotesk"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-code-md":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-seat-tag":["10px",{"lineHeight":"12px","letterSpacing":"0.05em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-background selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><img alt="EventHub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ul4kV3kILsW6X_KUMJd8qZKSozQ-KHu4emhdfKbDadz5bpuhmj5fJzdbinqhEwHlGnhh9i6Et4bwLLg0_vRJog6QLXS39X1gzy8iO8yd-Jgl_PTjOT8UHkB7GJktsrcTPD-Ci73Fg7YFIZRLmMAHcRrqACg2uIrwz0hXwNEhmTpyqUPd53Z9yZm4hWbyy140eXCsEYHDpw7bAuDHPRHgjMJKTFvIIyEMVdYzI5rFdmVvz4BaalrntNWv8"/><span class="font-headline-md text-headline-md text-primary tracking-tight">Event<span class="text-secondary">Hub</span></span></div><div class="hidden xl:flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-surface-container-high text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-on-surface">PSG Tech · CSEA</span></div></div><div class="hidden lg:flex flex-1 max-w-md mx-space-sm"><div class="relative w-full flex items-center bg-surface-container rounded-lg focus-within:bg-surface-container-high transition-colors"><span class="material-symbols-outlined absolute left-space-sm text-outline pointer-events-none text-xl">search</span><input class="w-full bg-transparent pl-11 pr-space-md py-space-xs font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search events, workshops, labs, symposiums..." type="text"/></div></div><nav class="hidden md:flex items-center gap-space-2xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(128,131,255,0.25)]"><a class="px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="events" href="#">Events</a><a aria-current="page" class="px-space-sm py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(128,131,255,0.25)]" data-path="event-details-&amp;-booking" href="#">Event Details &amp; Booking</a><a class="px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="profile" href="#">Profile</a></nav><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Notifications" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container"></span></span></button><button aria-label="Toggle Theme" class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="document.documentElement.classList.toggle('dark')" type="button"><span class="material-symbols-outlined dark:hidden text-xl">light_mode</span><span class="material-symbols-outlined hidden dark:inline-block text-xl">dark_mode</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA64erYmD8Emwc4GM0PGi6g3heAbukCc64KGyCyRvlG_ueLohnCHvqDD2443o5LIFYxBCsJqTukc4VpqjeJOhSyrX5aOLwRZDC5iddd3SPWlHipSbkivzV2UgpexF-orW47zDAhhbQZIjOPLKRdkJRvhHAJuedAOQgtD4-ri6RW0tRY2kewDZosuyrPq9t7qRHS2CcJ5ECvLyvxC6mHmpNaAvluV7GE4L1tkgVglPqS3bDKTjPcaXUo"/><div class="hidden sm:flex flex-col text-left"><span class="font-label-code-sm text-label-code-sm text-on-surface font-medium leading-none">Aanya R.</span><span class="font-label-seat-tag text-label-seat-tag text-outline tracking-wider leading-tight">CSE '27</span></div><span class="material-symbols-outlined text-outline text-lg hidden sm:inline-block">keyboard_arrow_down</span></div></div></div></header><main class="w-full pt-20 flex-1 bg-background"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary-container/20 via-secondary-container/10 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<!-- MAIN EVENT SUMMARY SECTION -->
+<section class="max-w-[1440px] mx-auto w-full px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop py-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- Left Details Panel (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Badges & Moniker Bar -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-primary font-label-code-sm text-label-code-sm uppercase tracking-wider font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              Keynote &amp; Hands-on
+            </span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+              PSG CSEA Club &amp; ACM Student Chapter
+            </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-code-sm text-label-code-sm font-semibold">
+              Free Student Access
+            </span>
+</div>
+<!-- Event Title -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+            CSEA Tech Talk 2026: <span class="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">Quantum Computing &amp; GenAI Frontiers</span>
+</h1>
+<!-- Meta Strip Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs p-space-sm rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Date</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Thu, Sep 15, 2026</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Time</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">10:00 AM – 1:00 PM</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-lg">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Venue</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">F-Block CS Lab 3</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Eligibility</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">All UG/PG Engg</span>
+</div>
+</div>
+</div>
+<!-- Speaker & Host Snapshot -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-space-sm rounded-xl bg-surface-container-high gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm ring-2 ring-primary/20" data-alt="Portrait of Dr Arvind V, a distinguished South Asian computer scientist and AI architect wearing modern glasses in a high-tech academic lab setting with holographic quantum circuit diagrams softly illuminating the background in neon indigo and cyan tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKfafjkqLsQHtg3rk9ODrLluvOY9iaG4WvoevZyQdWwtEDVKatx1TbTUIuvoIpJ9o4KZGuCLGQ51--y4EYe2LGUa3vaaED5qLDKPrVaA97ASv-07OgAFr2ZMVvJIVVKou_mewLOvRGZgIDispXbz8MnOWWUw45A-BVEGX_G1_sIF_kTv3donpCv5mQUyzi6e7HIZD3SkdfB21jdPhshUqtkSybMS07wM6d2IX9nyZ8lXJM1g5v-9KJ"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Dr. Arvind V.</span>
+<span class="material-symbols-outlined text-secondary text-sm" title="Verified Distinguished Speaker">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Principal AI Architect • ex-IITM, Google Cloud AI</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-stretch sm:self-auto justify-end">
+<div class="px-space-xs py-space-2xs rounded-lg bg-surface-container text-outline font-label-code-sm text-label-code-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">laptop_mac</span>
+<span>BYOD Recommended</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Capacity & Live Status Gauge (5 cols) -->
+<div class="lg:col-span-5 flex flex-col justify-between p-space-md rounded-2xl bg-surface-container-low shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-outline">Live Seat Inventory</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">Auditorium • Hall 3</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+              Fast Filling (75%)
+            </div>
+</div>
+<!-- Mini Metrics Cards -->
+<div class="grid grid-cols-3 gap-space-xs my-space-xs">
+<div class="flex flex-col p-space-xs rounded-xl bg-surface-container text-center">
+<span class="font-label-code-sm text-label-code-sm text-outline">Capacity</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">60</span>
+</div>
+<div class="flex flex-col p-space-xs rounded-xl bg-surface-container text-center">
+<span class="font-label-code-sm text-label-code-sm text-outline">Booked</span>
+<span class="font-headline-md text-headline-md text-error font-bold">45</span>
+</div>
+<div class="flex flex-col p-space-xs rounded-xl bg-surface-container text-center">
+<span class="font-label-code-sm text-label-code-sm text-outline">Available</span>
+<span class="font-headline-md text-headline-md text-tertiary font-bold" id="stat-available">13</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex justify-between items-center font-label-code-sm text-label-code-sm">
+<span class="text-on-surface-variant">Occupancy Rate</span>
+<span class="text-on-surface font-semibold">47 of 60 Reserved (incl. 2 in cart)</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-highest overflow-hidden p-0.5">
+<div class="h-full rounded-full bg-gradient-to-r from-tertiary via-secondary to-primary w-3/4 transition-all duration-500"></div>
+</div>
+</div>
+<!-- Security / Identity Token -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between font-label-code-sm text-label-code-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-tertiary">lock</span>
+              PSG College SSO Verified
+            </span>
+<span class="text-on-surface-variant font-mono">ID: CSEA-2026-QT9</span>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE SEATING MATRIX SECTION -->
+<section class="max-w-[1440px] mx-auto w-full px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop pb-space-3xl">
+<div class="w-full rounded-2xl bg-surface-container-lowest p-space-md sm:p-space-xl shadow-2xl flex flex-col items-center">
+<!-- Stage / Screen Unit -->
+<div class="w-full max-w-2xl flex flex-col items-center mb-space-xl relative">
+<!-- Projection Beam Effect -->
+<div class="w-full h-12 bg-gradient-to-b from-secondary/15 to-transparent blur-md -mb-4 rounded-t-full"></div>
+<!-- Curved Glow Stage Bar -->
+<svg class="w-full h-8 overflow-visible" fill="none" viewbox="0 0 600 40" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 32 Q 300 2 590 32" stroke="url(#stageGlow)" stroke-linecap="round" stroke-width="4"></path>
+<defs>
+<lineargradient id="stageGlow" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#8083ff" stop-opacity="0.2"></stop>
+<stop offset="50%" stop-color="#4cd7f6" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#8083ff" stop-opacity="0.2"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex items-center gap-2 mt-1 px-4 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm font-semibold tracking-widest uppercase">
+<span class="material-symbols-outlined text-xs text-secondary">desktop_windows</span>
+            Stage • Projector Screen • Podium
+          </div>
+</div>
+<!-- Seating Legend -->
+<div class="flex flex-wrap items-center justify-center gap-space-md sm:gap-space-lg mb-space-xl py-space-xs px-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-md bg-surface-container-high ring-1 ring-tertiary flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Available</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-md bg-secondary text-on-secondary flex items-center justify-center shadow-[0_0_8px_rgba(76,215,246,0.6)]">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Selected (2)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-md bg-surface-container text-outline/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">close</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Booked</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Faculty Reserved</span>
+</div>
+</div>
+<!-- Seat Matrix Grid Container (Scrollable on small devices) -->
+<div class="w-full overflow-x-auto pb-space-sm flex justify-center">
+<div class="flex flex-col gap-seat-gap-y min-w-[580px] p-space-sm" id="seating-matrix">
+<!-- ROW A (Faculty Reserved + Some Booked) -->
+<div class="flex items-center justify-between gap-space-md" data-row="A">
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">A</span>
+<!-- Left Wing: Seats 1 - 5 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A1 (Faculty Reserved)" type="button">
+<span class="material-symbols-outlined text-xs">star</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A2 (Faculty Reserved)" type="button">
+<span class="material-symbols-outlined text-xs">star</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A3 (Faculty Reserved)" type="button">
+<span class="material-symbols-outlined text-xs">star</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A4 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A5 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<!-- Center Aisle -->
+<div class="w-10 text-center font-label-code-sm text-label-code-sm text-outline/40 uppercase tracking-widest select-none">
+                •
+              </div>
+<!-- Right Wing: Seats 6 - 10 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A6 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A7 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A8 (Faculty Reserved)" type="button">
+<span class="material-symbols-outlined text-xs">star</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A9 (Faculty Reserved)" type="button">
+<span class="material-symbols-outlined text-xs">star</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-primary-container/30 text-primary-fixed flex items-center justify-center cursor-not-allowed" disabled="" title="Seat A10 (Faculty Reserved)" type="button">
+<span class="material-symbols-outlined text-xs">star</span>
+</button>
+</div>
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">A</span>
+</div>
+<!-- ROW B (Contains pre-selected B4 & B5) -->
+<div class="flex items-center justify-between gap-space-md" data-row="B">
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">B</span>
+<!-- Left Wing: Seats 1 - 5 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B1 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B2 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B3 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<!-- Selected B4 -->
+<button class="seat-btn w-8 h-8 rounded-md bg-secondary text-on-secondary flex items-center justify-center shadow-[0_0_10px_rgba(76,215,246,0.6)] font-label-seat-tag text-label-seat-tag transition-transform hover:scale-105 active:scale-95" data-seat="B4" onclick="toggleSeat(this)" title="Seat B4" type="button">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</button>
+<!-- Selected B5 -->
+<button class="seat-btn w-8 h-8 rounded-md bg-secondary text-on-secondary flex items-center justify-center shadow-[0_0_10px_rgba(76,215,246,0.6)] font-label-seat-tag text-label-seat-tag transition-transform hover:scale-105 active:scale-95" data-seat="B5" onclick="toggleSeat(this)" title="Seat B5" type="button">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</button>
+</div>
+<!-- Center Aisle -->
+<div class="w-10 text-center font-label-code-sm text-label-code-sm text-outline/40 uppercase tracking-widest select-none">
+                •
+              </div>
+<!-- Right Wing: Seats 6 - 10 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B6 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B7 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B8 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B9 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat B10 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">B</span>
+</div>
+<!-- ROW C -->
+<div class="flex items-center justify-between gap-space-md" data-row="C">
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">C</span>
+<!-- Left Wing: Seats 1 - 5 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C1 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C2 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C3 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C4 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C5 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<!-- Center Aisle -->
+<div class="w-10 text-center font-label-code-sm text-label-code-sm text-outline/40 uppercase tracking-widest select-none">
+                •
+              </div>
+<!-- Right Wing: Seats 6 - 10 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="C6" onclick="toggleSeat(this)" title="Seat C6" type="button">
+                  6
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="C7" onclick="toggleSeat(this)" title="Seat C7" type="button">
+                  7
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C8 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C9 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat C10 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">C</span>
+</div>
+<!-- ROW D -->
+<div class="flex items-center justify-between gap-space-md" data-row="D">
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">D</span>
+<!-- Left Wing: Seats 1 - 5 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D1 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D2 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D3 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="D4" onclick="toggleSeat(this)" title="Seat D4" type="button">
+                  4
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="D5" onclick="toggleSeat(this)" title="Seat D5" type="button">
+                  5
+                </button>
+</div>
+<!-- Center Aisle -->
+<div class="w-10 text-center font-label-code-sm text-label-code-sm text-outline/40 uppercase tracking-widest select-none">
+                •
+              </div>
+<!-- Right Wing: Seats 6 - 10 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="D6" onclick="toggleSeat(this)" title="Seat D6" type="button">
+                  6
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D7 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D8 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D9 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat D10 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">D</span>
+</div>
+<!-- ROW E -->
+<div class="flex items-center justify-between gap-space-md" data-row="E">
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">E</span>
+<!-- Left Wing: Seats 1 - 5 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat E1 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat E2 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="E3" onclick="toggleSeat(this)" title="Seat E3" type="button">
+                  3
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="E4" onclick="toggleSeat(this)" title="Seat E4" type="button">
+                  4
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat E5 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<!-- Center Aisle -->
+<div class="w-10 text-center font-label-code-sm text-label-code-sm text-outline/40 uppercase tracking-widest select-none">
+                •
+              </div>
+<!-- Right Wing: Seats 6 - 10 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat E6 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="E7" onclick="toggleSeat(this)" title="Seat E7" type="button">
+                  7
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="E8" onclick="toggleSeat(this)" title="Seat E8" type="button">
+                  8
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat E9 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat E10 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">E</span>
+</div>
+<!-- ROW F -->
+<div class="flex items-center justify-between gap-space-md" data-row="F">
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">F</span>
+<!-- Left Wing: Seats 1 - 5 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F1" onclick="toggleSeat(this)" title="Seat F1" type="button">
+                  1
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F2" onclick="toggleSeat(this)" title="Seat F2" type="button">
+                  2
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F3" onclick="toggleSeat(this)" title="Seat F3" type="button">
+                  3
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat F4 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container text-outline/40 flex items-center justify-center cursor-not-allowed" disabled="" title="Seat F5 (Occupied)" type="button">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<!-- Center Aisle -->
+<div class="w-10 text-center font-label-code-sm text-label-code-sm text-outline/40 uppercase tracking-widest select-none">
+                •
+              </div>
+<!-- Right Wing: Seats 6 - 10 -->
+<div class="flex items-center gap-seat-gap-x">
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F6" onclick="toggleSeat(this)" title="Seat F6" type="button">
+                  6
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F7" onclick="toggleSeat(this)" title="Seat F7" type="button">
+                  7
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F8" onclick="toggleSeat(this)" title="Seat F8" type="button">
+                  8
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F9" onclick="toggleSeat(this)" title="Seat F9" type="button">
+                  9
+                </button>
+<button class="seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50" data-seat="F10" onclick="toggleSeat(this)" title="Seat F10" type="button">
+                  10
+                </button>
+</div>
+<span class="w-6 font-headline-sm text-headline-sm text-outline text-center font-bold">F</span>
+</div>
+</div>
+</div>
+<!-- Venue Note & Hall Tip -->
+<div class="mt-space-lg flex items-center gap-space-xs text-outline font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-sm text-secondary">info</span>
+<span>Center aisle permits seamless access to lab projection monitors and power strip ports. Max 2 seats per student ID.</span>
+</div>
+</div>
+</section>
+</div>
+<!-- PERSISTENT STICKY BOOKING SUMMARY FOOTER DOCK -->
+<aside class="sticky bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/90 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0_-8px_30px_rgba(0,0,0,0.45)]">
+<div class="max-w-[1440px] mx-auto px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop py-space-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Left: Seats & Type -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-between md:justify-start">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">event_seat</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Selected Seats</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-code-sm text-label-code-sm font-bold" id="selected-count-badge">2 Seats</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold font-mono" id="selected-seats-tokens">Row B: [B4, B5]</span>
+<span class="text-outline">•</span>
+<span class="font-body-sm text-body-sm text-tertiary font-semibold">Student Free Pass (₹0)</span>
+</div>
+</div>
+</div>
+<button class="md:hidden p-2 text-outline hover:text-error transition-colors" onclick="clearSelectedSeats()" title="Clear Selection" type="button">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+<!-- Middle: Authenticated Student ID Profile -->
+<div class="hidden lg:flex items-center gap-space-xs px-space-sm py-space-2xs rounded-xl bg-surface-container-low">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-label-code-sm text-label-code-sm">
+          AR
+        </div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold leading-none">Aanya R. (Roll: 23CS104)</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Instant College Pass • QR Verified</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-base ml-1">verified_user</span>
+</div>
+<!-- Right: Action Buttons -->
+<div class="flex items-center gap-space-xs w-full md:w-auto justify-end">
+<button class="hidden md:inline-flex items-center gap-1 px-4 py-2.5 rounded-xl bg-surface-container text-on-surface-variant hover:text-error hover:bg-surface-container-high transition-colors font-body-sm text-body-sm font-semibold" onclick="clearSelectedSeats()" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+          Clear
+        </button>
+<button class="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-primary-container text-on-primary font-body-sm text-body-sm font-bold shadow-[0_0_16px_rgba(128,131,255,0.4)] hover:brightness-110 active:scale-95 transition-all" id="confirm-booking-btn" onclick="openConfirmationModal()" type="button">
+<span class="material-symbols-outlined text-lg">confirmation_number</span>
+<span>Confirm &amp; Reserve Seats</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- CONFIRMATION MODAL (BookMyShow / CSEA Style Digital Ticket) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 p-grid-margin-mobile" id="confirmation-modal">
+<div class="relative w-full max-w-lg rounded-3xl bg-surface-container-low shadow-2xl p-space-lg flex flex-col gap-space-md border border-outline-variant/30 transform scale-95 transition-transform duration-300" id="modal-card">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeConfirmationModal()" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<!-- Modal Header -->
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-container/30 text-tertiary flex items-center justify-center shadow-[0_0_20px_rgba(78,222,163,0.3)]">
+<span class="material-symbols-outlined text-2xl font-bold">check_circle</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Booking Confirmed!</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-mono">Pass ID: #PSG-CSEA-8842</span>
+</div>
+</div>
+<!-- Ticket Body Card -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-md flex flex-col gap-space-sm relative overflow-hidden">
+<!-- Event Moniker -->
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">CSEA Tech Talk Series</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">Gate: West Entry • F-Block</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+          Quantum Computing &amp; GenAI Frontiers
+        </h3>
+<!-- Dynamic Seats Confirmation Info -->
+<div class="grid grid-cols-2 gap-space-xs py-space-2xs">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Allocated Seats</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-mono font-bold" id="modal-seats-label">B4, B5</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Passholder</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Aanya R. (23CS104)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Date &amp; Time</span>
+<span class="font-body-sm text-body-sm text-on-surface">Thu, Sep 15 • 10:00 AM</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase">Venue</span>
+<span class="font-body-sm text-body-sm text-on-surface">F-Block CS Lab 3</span>
+</div>
+</div>
+<!-- Inline Mock QR Code Box -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high mt-space-2xs">
+<div class="flex items-center gap-space-sm">
+<!-- Inline SVG QR Placeholder for crisp contrast -->
+<div class="w-16 h-16 bg-white p-1 rounded-lg flex items-center justify-center">
+<svg class="w-full h-full text-black" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm12 0h2v2h-2v-2zm-2 2h2v2h-2v-2zm4 0h2v2h-2v-2zm-2 2h2v2h-2v-2zm4 0h2v2h-2v-2zm-4-6h2v2h-2v-2zm2 0h2v2h-2v-2zm-4 2h2v2h-2v-2zm6-4h2v2h-2v-2zM5 5h2v2H5V5zm12 0h2v2h-2V5zM5 17h2v2H5v-2z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">Scan at Door Scanner</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">PSG ID Card required</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-md bg-tertiary-container/30 text-tertiary font-label-code-sm text-label-code-sm font-semibold">Active</span>
+</div>
+</div>
+<!-- Action Utilities inside Modal -->
+<div class="flex flex-col sm:flex-row items-center gap-space-xs pt-space-2xs">
+<a class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm font-semibold hover:bg-surface-container-high transition-colors" href="https://calendar.google.com" target="_blank">
+<span class="material-symbols-outlined text-sm">event</span>
+          Google Calendar
+        </a>
+<button class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary text-on-primary font-body-sm text-body-sm font-bold shadow-md hover:brightness-105 transition-all" onclick="closeConfirmationModal()" type="button">
+<span class="material-symbols-outlined text-sm">confirmation_number</span>
+          View in My Bookings
+        </button>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE LOGIC SCRIPT -->
+<script>
+    // State management for chosen seats
+    let selectedSeats = ['B4', 'B5'];
+
+    function renderSelection() {
+      const tokensElem = document.getElementById('selected-seats-tokens');
+      const countBadge = document.getElementById('selected-count-badge');
+      const confirmBtn = document.getElementById('confirm-booking-btn');
+      const modalSeatsLabel = document.getElementById('modal-seats-label');
+      const statAvail = document.getElementById('stat-available');
+
+      // Update stat available
+      if (statAvail) {
+        statAvail.textContent = (15 - selectedSeats.length).toString();
+      }
+
+      if (selectedSeats.length === 0) {
+        tokensElem.textContent = 'No seats selected';
+        countBadge.textContent = '0 Seats';
+        countBadge.className = 'px-2 py-0.5 rounded-full bg-surface-container text-outline font-label-code-sm text-label-code-sm';
+        confirmBtn.disabled = true;
+        confirmBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      } else {
+        tokensElem.textContent = `[${selectedSeats.join(', ')}]`;
+        countBadge.textContent = `${selectedSeats.length} Seat${selectedSeats.length > 1 ? 's' : ''}`;
+        countBadge.className = 'px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-code-sm text-label-code-sm font-bold';
+        confirmBtn.disabled = false;
+        confirmBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+
+      if (modalSeatsLabel) {
+        modalSeatsLabel.textContent = selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None';
+      }
+    }
+
+    function toggleSeat(btn) {
+      const seatCode = btn.getAttribute('data-seat');
+      if (!seatCode) return;
+
+      const index = selectedSeats.indexOf(seatCode);
+
+      if (index > -1) {
+        // Deselect
+        selectedSeats.splice(index, 1);
+        btn.className = 'seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50';
+        btn.innerHTML = seatCode.replace(/[A-Z]/g, '');
+      } else {
+        // Enforce limit of 2 seats per student pass
+        if (selectedSeats.length >= 2) {
+          alert('Maximum of 2 student seats can be reserved per booking session.');
+          return;
+        }
+        selectedSeats.push(seatCode);
+        btn.className = 'seat-btn w-8 h-8 rounded-md bg-secondary text-on-secondary flex items-center justify-center shadow-[0_0_10px_rgba(76,215,246,0.6)] font-label-seat-tag text-label-seat-tag transition-transform hover:scale-105 active:scale-95';
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm font-bold">check</span>';
+      }
+
+      renderSelection();
+    }
+
+    function clearSelectedSeats() {
+      selectedSeats.forEach(code => {
+        const btn = document.querySelector(`button[data-seat="${code}"]`);
+        if (btn) {
+          btn.className = 'seat-btn w-8 h-8 rounded-md bg-surface-container-high text-on-surface font-label-seat-tag text-label-seat-tag hover:bg-surface-bright active:scale-95 transition-all ring-1 ring-tertiary/50';
+          btn.innerHTML = code.replace(/[A-Z]/g, '');
+        }
+      });
+      selectedSeats = [];
+      renderSelection();
+    }
+
+    function openConfirmationModal() {
+      if (selectedSeats.length === 0) return;
+      const modal = document.getElementById('confirmation-modal');
+      const card = document.getElementById('modal-card');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+    }
+
+    function closeConfirmationModal() {
+      const modal = document.getElementById('confirmation-modal');
+      const card = document.getElementById('modal-card');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+    }
+
+    // Initialize state on load
+    renderSelection();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-auto shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1440px] mx-auto px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col items-center md:items-start gap-space-2xs"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary">EventHub</span><span class="font-label-code-sm text-label-code-sm text-outline">· Computer Science &amp; Engineering Association</span></div><p class="font-body-sm text-body-sm text-outline text-center md:text-left">Department of Computer Science &amp; Engineering, PSG College of Technology, Coimbatore</p></div><div class="flex items-center gap-space-md text-outline font-label-code-sm text-label-code-sm"><span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded-full bg-tertiary"></span>Node Sync Active</span><span>© 2025 CSEA PSG Tech</span></div></div></footer></body></html>

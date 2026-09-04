@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>EventHub · PSG Tech CSEA</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-bright":"#353943","on-secondary-fixed":"#001f26","on-surface-variant":"#c7c4d7","primary-fixed":"#e1e0ff","on-primary":"#1000a9","on-error-container":"#ffdad6","on-primary-fixed-variant":"#2f2ebe","on-background":"#dfe2ef","secondary-fixed":"#acedff","on-primary-container":"#0d0096","outline-variant":"#464554","surface-tint":"#c0c1ff","on-tertiary-fixed-variant":"#005236","background":"#0f131c","inverse-on-surface":"#2c303a","surface-container-lowest":"#0a0e17","on-tertiary-container":"#000703","on-primary-fixed":"#07006c","on-tertiary-fixed":"#002113","inverse-surface":"#dfe2ef","tertiary-container":"#00885d","surface-variant":"#31353f","surface-container-highest":"#31353f","tertiary":"#4edea3","inverse-primary":"#494bd6","error-container":"#93000a","tertiary-fixed-dim":"#4edea3","outline":"#908fa0","surface-container-high":"#262a34","surface-dim":"#0f131c","on-surface":"#dfe2ef","on-tertiary":"#003824","secondary":"#4cd7f6","on-secondary":"#003640","primary":"#c0c1ff","surface-container":"#1c1f29","secondary-fixed-dim":"#4cd7f6","primary-fixed-dim":"#c0c1ff","on-error":"#690005","error":"#ffb4ab","surface":"#0f131c","secondary-container":"#03b5d3","primary-container":"#8083ff","on-secondary-fixed-variant":"#004e5c","surface-container-low":"#181b25","tertiary-fixed":"#6ffbbe","on-secondary-container":"#00424e"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"grid-margin-mobile":"1rem","gutter-desktop":"1.5rem","grid-margin-desktop":"3.5rem","seat-gap-x":"0.375rem","space-3xl":"4.5rem","space-2xl":"3rem","space-md":"1rem","space-xs":"0.5rem","grid-margin-tablet":"2rem","space-lg":"1.5rem","space-2xs":"0.25rem","space-xl":"2rem","seat-gap-y":"0.5rem","space-sm":"0.75rem","gutter-mobile":"0.75rem"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-xl":["Space Grotesk"],"headline-sm":["Space Grotesk"],"label-code-md":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"label-seat-tag":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"display-xl-mobile":["Space Grotesk"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-code-md":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-seat-tag":["10px",{"lineHeight":"12px","letterSpacing":"0.05em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-background selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><img alt="EventHub Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ul4kV3kILsW6X_KUMJd8qZKSozQ-KHu4emhdfKbDadz5bpuhmj5fJzdbinqhEwHlGnhh9i6Et4bwLLg0_vRJog6QLXS39X1gzy8iO8yd-Jgl_PTjOT8UHkB7GJktsrcTPD-Ci73Fg7YFIZRLmMAHcRrqACg2uIrwz0hXwNEhmTpyqUPd53Z9yZm4hWbyy140eXCsEYHDpw7bAuDHPRHgjMJKTFvIIyEMVdYzI5rFdmVvz4BaalrntNWv8"/><span class="font-headline-md text-headline-md text-primary tracking-tight">Event<span class="text-secondary">Hub</span></span></div><div class="hidden xl:flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-surface-container-high text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-on-surface">PSG Tech · CSEA</span></div></div><div class="hidden lg:flex flex-1 max-w-md mx-space-sm"><div class="relative w-full flex items-center bg-surface-container rounded-lg focus-within:bg-surface-container-high transition-colors"><span class="material-symbols-outlined absolute left-space-sm text-outline pointer-events-none text-xl">search</span><input class="w-full bg-transparent pl-11 pr-space-md py-space-xs font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search events, workshops, labs, symposiums..." type="text"/></div></div><nav class="hidden md:flex items-center gap-space-2xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(128,131,255,0.25)]"><a class="px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="events" href="#">Events</a><a class="px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="event-details-&amp;-booking" href="#">Event Details &amp; Booking</a><a aria-current="page" class="px-space-sm py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(128,131,255,0.25)]" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="profile" href="#">Profile</a></nav><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Notifications" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container"></span></span></button><button aria-label="Toggle Theme" class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="document.documentElement.classList.toggle('dark')" type="button"><span class="material-symbols-outlined dark:hidden text-xl">light_mode</span><span class="material-symbols-outlined hidden dark:inline-block text-xl">dark_mode</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA64erYmD8Emwc4GM0PGi6g3heAbukCc64KGyCyRvlG_ueLohnCHvqDD2443o5LIFYxBCsJqTukc4VpqjeJOhSyrX5aOLwRZDC5iddd3SPWlHipSbkivzV2UgpexF-orW47zDAhhbQZIjOPLKRdkJRvhHAJuedAOQgtD4-ri6RW0tRY2kewDZosuyrPq9t7qRHS2CcJ5ECvLyvxC6mHmpNaAvluV7GE4L1tkgVglPqS3bDKTjPcaXUo"/><div class="hidden sm:flex flex-col text-left"><span class="font-label-code-sm text-label-code-sm text-on-surface font-medium leading-none">Aanya R.</span><span class="font-label-seat-tag text-label-seat-tag text-outline tracking-wider leading-tight">CSE '27</span></div><span class="material-symbols-outlined text-outline text-lg hidden sm:inline-block">keyboard_arrow_down</span></div></div></div></header><main class="w-full pt-20 flex-1 bg-background"><div class="flex flex-col w-full">
+<!-- Dynamic Atmospheric Glow Background -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-20 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- Top Section: Header, Metrics & Utility Bar -->
+<div class="flex flex-col gap-space-lg">
+<!-- Breadcrumb & Association Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-code-sm text-label-code-sm text-outline">
+<span class="hover:text-on-surface transition-colors cursor-pointer">PORTAL</span>
+<span>/</span>
+<span class="text-secondary font-medium">STUDENT PASS CONSOLE</span>
+<span>/</span>
+<span class="text-primary uppercase font-bold tracking-wider">PSG TECH CSEA</span>
+</div>
+<!-- Quick Metrics Ribbon -->
+<div class="flex items-center gap-space-xs font-label-code-sm text-label-code-sm bg-surface-container-low px-space-sm py-space-2xs rounded-full">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+              Roll: <strong class="text-secondary">23CS108</strong> (Aanya R.)
+            </span>
+<span class="text-outline">·</span>
+<span class="text-on-surface-variant">Active Passes: <strong class="text-primary font-bold">2</strong></span>
+</div>
+</div>
+<!-- Title & Primary Actions Split Layout -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-2xs max-w-2xl">
+<h1 class="font-display-xl text-headline-lg lg:text-display-xl text-on-background tracking-tight">
+              My Event <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary">Bookings</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+              Access your registered college symposiums, verified seat tokens, and encrypted entrance QR passes for PSG Tech campus auditoriums.
+            </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="group relative flex items-center gap-space-xs bg-surface-container-high hover:bg-surface-bright px-space-md py-space-sm rounded-xl text-on-surface transition-all shadow-md" onclick="triggerDownloadAll()" type="button">
+<span class="material-symbols-outlined text-secondary text-xl transition-transform group-hover:-translate-y-0.5">file_download</span>
+<div class="flex flex-col text-left">
+<span class="font-label-code-sm text-label-code-sm font-semibold leading-none">Download All Passes</span>
+<span class="font-label-seat-tag text-label-seat-tag text-outline">PDF · Encrypted Bundle</span>
+</div>
+</button>
+<button class="group relative flex items-center gap-space-xs bg-primary-container hover:bg-primary-fixed-variant px-space-md py-space-sm rounded-xl text-on-primary-container transition-all shadow-md" onclick="triggerCalendarSync()" type="button">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:scale-110">calendar_month</span>
+<div class="flex flex-col text-left">
+<span class="font-label-code-sm text-label-code-sm font-bold leading-none">Sync to Calendar</span>
+<span class="font-label-seat-tag text-label-seat-tag text-on-primary-container/80">.ICS / Google / Apple</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Filter Tabs & Realtime Counter Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-2xs rounded-xl">
+<div class="flex items-center gap-space-2xs overflow-x-auto" id="bookingTabContainer">
+<button class="tab-btn active-tab px-space-md py-space-xs font-label-code-md text-label-code-md font-semibold rounded-lg transition-all bg-primary text-on-primary shadow-sm flex items-center gap-1.5" onclick="filterBookings('all', this)">
+<span>All Bookings</span>
+<span class="px-1.5 py-0.5 rounded-full text-xs bg-on-primary/20 text-on-primary">4</span>
+</button>
+<button class="tab-btn px-space-md py-space-xs font-label-code-md text-label-code-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-all flex items-center gap-1.5" onclick="filterBookings('upcoming', this)">
+<span>Upcoming</span>
+<span class="px-1.5 py-0.5 rounded-full text-xs bg-surface-container-highest text-secondary font-bold">2</span>
+</button>
+<button class="tab-btn px-space-md py-space-xs font-label-code-md text-label-code-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-all flex items-center gap-1.5" onclick="filterBookings('completed', this)">
+<span>Attended / Completed</span>
+<span class="px-1.5 py-0.5 rounded-full text-xs bg-surface-container-highest text-on-surface-variant">1</span>
+</button>
+<button class="tab-btn px-space-md py-space-xs font-label-code-md text-label-code-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-all flex items-center gap-1.5" onclick="filterBookings('cancelled', this)">
+<span>Cancelled</span>
+<span class="px-1.5 py-0.5 rounded-full text-xs bg-surface-container-highest text-error font-medium">1</span>
+</button>
+</div>
+<div class="hidden xl:flex items-center gap-space-xs px-space-sm text-outline font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-tertiary text-base">verified_user</span>
+<span>RFID NFC Gate Verification Supported</span>
+</div>
+</div>
+</div>
+<!-- SECTION 1: Active / Upcoming Bookings -->
+<div class="flex flex-col gap-space-md transition-opacity" id="sectionUpcoming">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></div>
+<h2 class="font-headline-md text-headline-md text-on-background">Live &amp; Upcoming Reservations</h2>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary bg-surface-container px-space-xs py-1 rounded-md">2 Confirmed Tickets</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Ticket Card 1: Quantum Computing & GenAI Frontiers -->
+<div class="booking-card upcoming lg:col-span-7 flex flex-col justify-between bg-surface-container rounded-2xl p-space-lg shadow-xl relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<!-- Decorative Subtle Watermark Vector -->
+<div class="absolute -right-8 -bottom-10 opacity-5 pointer-events-none text-on-background select-none">
+<span class="material-symbols-outlined text-[190px]">memory</span>
+</div>
+<!-- Top Row: Tags & ID -->
+<div class="flex flex-wrap items-start justify-between gap-space-xs mb-space-md relative z-10">
+<div class="flex flex-wrap items-center gap-space-xs">
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                  Confirmed · Upcoming
+                </span>
+<span class="px-space-xs py-1 rounded-md bg-surface-container-highest font-label-code-sm text-label-code-sm text-secondary font-medium">
+                  CSEA Tech Talk '26
+                </span>
+</div>
+<div class="text-right font-label-code-sm text-label-code-sm text-outline">
+<span class="block">Booking ID: <strong class="text-on-surface">EVH-2026-9821</strong></span>
+<span class="text-xs">Booked on: Sep 10, 2026</span>
+</div>
+</div>
+<!-- Event Details -->
+<div class="flex flex-col gap-space-xs mb-space-md relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                CSEA Tech Talk 2026: Quantum Computing &amp; GenAI Frontiers
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                Special keynote by Dr. S. Ramanathan (Quantum Algorithms Lab) on hybrid Qubit compilation and transformer architectures at extreme scale.
+              </p>
+</div>
+<!-- Info Matrix Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm py-space-sm bg-surface-container-lowest/70 backdrop-blur-md rounded-xl px-space-md mb-space-md relative z-10">
+<!-- Seat Assignment -->
+<div class="flex flex-col">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase tracking-wider">Seat Assignment</span>
+<div class="mt-1 flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-secondary/15 text-secondary font-label-code-md text-label-code-md font-bold">
+<span class="material-symbols-outlined text-base">event_seat</span>
+                    Row B · B4, B5
+                  </span>
+</div>
+</div>
+<!-- Date & Time -->
+<div class="flex flex-col">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase tracking-wider">Date &amp; Schedule</span>
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold mt-1">Sep 15, 2026</span>
+<span class="font-body-sm text-body-sm text-secondary">10:00 AM – 01:00 PM IST</span>
+</div>
+<!-- Venue -->
+<div class="flex flex-col col-span-2 sm:col-span-1">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase tracking-wider">Auditorium / Venue</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">location_on</span>
+                  F-Block CS Lab 3
+                </span>
+<span class="font-label-code-sm text-label-code-sm text-outline">PSG Tech Central Campus</span>
+</div>
+</div>
+<!-- Bottom QR Preview & Interactivity Trigger -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-sm relative z-10">
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<!-- QR Code Preview Graphic -->
+<div class="w-14 h-14 bg-surface-container-highest p-1.5 rounded-xl flex items-center justify-center shrink-0 cursor-pointer group/qr hover:scale-105 transition-transform" onclick="openTicketModal('EVH-2026-9821')">
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<rect height="30" rx="4" width="30" x="0" y="0"></rect>
+<rect fill="#0f131c" height="10" width="10" x="10" y="10"></rect>
+<rect height="30" rx="4" width="30" x="70" y="0"></rect>
+<rect fill="#0f131c" height="10" width="10" x="80" y="10"></rect>
+<rect height="30" rx="4" width="30" x="0" y="70"></rect>
+<rect fill="#0f131c" height="10" width="10" x="10" y="80"></rect>
+<rect height="10" width="10" x="40" y="10"></rect>
+<rect height="10" width="20" x="50" y="30"></rect>
+<rect height="20" width="10" x="40" y="50"></rect>
+<rect height="10" width="10" x="60" y="60"></rect>
+<rect height="20" width="20" x="80" y="70"></rect>
+<rect height="10" width="15" x="35" y="85"></rect>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm font-semibold text-on-surface">Encrypted Gate QR</span>
+<span class="font-label-seat-tag text-label-seat-tag text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    Scan at CS Lab 3 Terminal
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs w-full sm:w-auto justify-end">
+<button class="flex-1 sm:flex-initial px-space-md py-2.5 bg-primary text-on-primary font-label-code-sm text-label-code-sm font-bold rounded-xl hover:bg-primary-container transition-colors shadow-md flex items-center justify-center gap-1.5" onclick="openTicketModal('EVH-2026-9821')" type="button">
+<span class="material-symbols-outlined text-lg">qr_code_2</span>
+                  View Pass / QR
+                </button>
+<button class="p-2.5 rounded-xl bg-surface-container-highest text-on-surface hover:bg-surface-bright transition-colors" onclick="showActionMenu(event, 'EVH-2026-9821')" title="Ticket Actions" type="button">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Ticket Card 2: National 24-Hr Hackathon 2026 CodeSpark (Team Pass) -->
+<div class="booking-card upcoming lg:col-span-5 flex flex-col justify-between bg-surface-container rounded-2xl p-space-lg shadow-xl relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<!-- Decorative Accent Pattern -->
+<div class="absolute -right-6 -bottom-6 opacity-5 pointer-events-none text-on-background select-none">
+<span class="material-symbols-outlined text-[170px]">terminal</span>
+</div>
+<!-- Header -->
+<div class="flex flex-wrap items-start justify-between gap-space-xs mb-space-md relative z-10">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container/30 text-secondary font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                  Confirmed · Team Pass
+                </span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-outline">EVH-2026-6140</span>
+</div>
+<!-- Title & Team Moniker -->
+<div class="flex flex-col gap-space-2xs mb-space-md relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-secondary transition-colors">
+                National 24-Hr Hackathon 2026: CodeSpark
+              </h3>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-code-sm text-label-code-sm">
+<span class="text-tertiary font-bold">Team: ByteShift_01</span>
+<span>·</span>
+<span>Slot: Squad Desk Alpha</span>
+</div>
+</div>
+<!-- Team Pass Data Spec -->
+<div class="flex flex-col gap-space-xs p-space-sm bg-surface-container-lowest/70 backdrop-blur-md rounded-xl mb-space-md relative z-10">
+<div class="flex items-center justify-between">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase">Seat &amp; Pod</span>
+<span class="font-label-code-md text-label-code-md text-secondary font-bold">Bay C · Desk C12</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase">Venue</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Innovation &amp; Incubation Ctr</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase">Starts At</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Oct 02, 2026 · 09:00 AM</span>
+</div>
+<!-- Team Member Avatars List -->
+<div class="pt-space-2xs mt-space-2xs flex items-center justify-between">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase">Team Members (4)</span>
+<div class="flex -space-x-2 overflow-hidden">
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-primary text-on-primary font-label-code-sm text-center font-bold text-[10px] leading-6" title="Aanya R. (Lead)">AR</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-secondary text-on-secondary font-label-code-sm text-center font-bold text-[10px] leading-6" title="Karthik M.">KM</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-tertiary text-on-tertiary font-label-code-sm text-center font-bold text-[10px] leading-6" title="Divya S.">DS</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-surface-bright text-on-surface font-label-code-sm text-center font-bold text-[10px] leading-6" title="Pranav V.">PV</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Row -->
+<div class="flex items-center justify-between gap-space-xs pt-space-xs relative z-10">
+<button class="w-full px-space-md py-2.5 bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-code-sm text-label-code-sm font-semibold rounded-xl transition-colors flex items-center justify-center gap-2" onclick="openTicketModal('EVH-2026-6140')" type="button">
+<span class="material-symbols-outlined text-secondary text-lg">badge</span>
+                Open Team Digital Pass
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Past & Archive History -->
+<div class="flex flex-col gap-space-md pt-space-md" id="sectionPast">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-xl">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Past Records &amp; Activity Log</h2>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-outline">Academic Year 2026-27</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Ticket Card 3: Cyber Security CTF Prelims (Completed) -->
+<div class="booking-card completed bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between hover:bg-surface-container transition-all">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-code-sm text-label-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    Completed · Attended
+                  </span>
+<span class="font-label-code-sm text-label-code-sm text-outline">EVH-2026-3392</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-medium">
+                  Cyber Security Awareness &amp; CTF Prelims
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Conducted at Assembly Hall · Row D, Seat D8
+                </p>
+</div>
+<span class="px-space-xs py-1 rounded bg-tertiary/15 text-tertiary font-label-code-sm text-label-code-sm font-semibold shrink-0">
+                Score: 480 pts
+              </span>
+</div>
+<!-- Certificate Claim Pill Banner -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs p-space-xs px-space-sm bg-surface-container-highest/60 rounded-lg">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="text-lg">📜</span>
+<span class="font-medium">Participation Certificate Available</span>
+</div>
+<button class="font-label-code-sm text-label-code-sm text-primary hover:text-primary-fixed font-bold flex items-center gap-1 transition-colors self-end sm:self-auto" onclick="claimCertificate('EVH-2026-3392')">
+<span>Claim PDF</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</button>
+</div>
+</div>
+<!-- Ticket Card 4: Web Dev Workshop (Cancelled) -->
+<div class="booking-card cancelled bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between hover:bg-surface-container transition-all opacity-80 hover:opacity-100">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-error-container/30 text-error font-label-code-sm text-label-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                    Cancelled
+                  </span>
+<span class="font-label-code-sm text-label-code-sm text-outline">EVH-2026-1180</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface/80 font-medium">
+                  Full Stack Web Dev Workshop &amp; Next.js 16 Deep Dive
+                </h4>
+<p class="font-body-sm text-body-sm text-outline">
+                  Cancelled by Student on Aug 08, 2026 · Seat Released back to waitlist.
+                </p>
+</div>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-outline font-label-code-sm text-label-code-sm">
+                Seat Released
+              </span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-code-sm text-label-code-sm pt-space-xs">
+<span>Original Slot: F-Block Lab 1</span>
+<button class="text-secondary hover:underline" onclick="reRegisterPrompt('Next.js 16 Workshop')">
+                Explore Alternative Batches →
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick FAQs & Campus Hall Help Section -->
+<div class="mt-space-md p-space-lg bg-surface-container-low rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl">pin_drop</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Campus Auditorium &amp; Lab Guidelines</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Please reach the venue 15 minutes prior to session kick-off. Carry your Physical PSG Tech RFID ID Card along with this digital pass.
+            </p>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold transition-colors shrink-0" data-path="events" href="#">
+          View Campus Venue Map →
+        </a>
+</div>
+</div>
+</div>
+<!-- SLIDE-OVER / DETAILED PASS MODAL (Boarding Pass Design) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-sm sm:p-space-md bg-surface-container-lowest/80 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-300" id="ticketModal">
+<!-- Modal Dialog Box Container -->
+<div class="relative w-full max-w-xl bg-surface-container rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[92vh]" id="modalContent">
+<!-- Top Holographic Watermark / Header -->
+<div class="p-space-md bg-gradient-to-r from-primary/20 via-surface-container-high to-secondary/20 flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xs">
+            CSEA
+          </div>
+<div>
+<div class="font-label-code-sm text-label-code-sm font-bold text-on-surface tracking-wider uppercase">PSG College of Technology</div>
+<div class="font-label-seat-tag text-label-seat-tag text-secondary uppercase">Automated RFID Gate Pass</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeTicketModal()" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Scrollable Ticket Body -->
+<div class="overflow-y-auto p-space-md sm:p-space-lg flex flex-col gap-space-md">
+<!-- Pass Main Header Title -->
+<div class="flex flex-col gap-1 text-left">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-code-sm text-label-code-sm text-tertiary uppercase font-bold" id="modalStatusBadge">Verified Reservation</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface" id="modalEventTitle">
+            CSEA Tech Talk 2026: Quantum Computing &amp; GenAI Frontiers
+          </h3>
+<span class="font-label-code-sm text-label-code-sm text-outline" id="modalPassId">PASS ID: EVH-2026-9821-PSG</span>
+</div>
+<!-- Perforated Tear Line Styling -->
+<div class="relative flex items-center my-space-xs">
+<div class="flex-grow border-t border-dashed border-outline-variant"></div>
+<span class="flex-shrink mx-4 font-label-seat-tag text-label-seat-tag text-outline tracking-widest uppercase">AIR-DROP / SCAN MATRIX</span>
+<div class="flex-grow border-t border-dashed border-outline-variant"></div>
+</div>
+<!-- Central High-Contrast Scannable Gate Token -->
+<div class="flex flex-col items-center justify-center p-space-md bg-surface-container-lowest rounded-xl gap-space-xs">
+<!-- Scalable SVG Scannable QR -->
+<div class="w-48 h-48 bg-white p-3 rounded-xl shadow-inner flex items-center justify-center">
+<svg class="w-full h-full text-surface-container-lowest" fill="currentColor" viewbox="0 0 120 120">
+<!-- Corner 1 -->
+<rect height="36" rx="4" width="36" x="0" y="0"></rect>
+<rect fill="white" height="20" width="20" x="8" y="8"></rect>
+<rect height="12" width="12" x="12" y="12"></rect>
+<!-- Corner 2 -->
+<rect height="36" rx="4" width="36" x="84" y="0"></rect>
+<rect fill="white" height="20" width="20" x="92" y="8"></rect>
+<rect height="12" width="12" x="96" y="12"></rect>
+<!-- Corner 3 -->
+<rect height="36" rx="4" width="36" x="0" y="84"></rect>
+<rect fill="white" height="20" width="20" x="8" y="92"></rect>
+<rect height="12" width="12" x="12" y="96"></rect>
+<!-- Matrix pattern simulation -->
+<rect height="8" width="8" x="44" y="8"></rect>
+<rect height="8" width="16" x="60" y="8"></rect>
+<rect height="8" width="24" x="44" y="24"></rect>
+<rect height="8" width="16" x="8" y="44"></rect>
+<rect height="8" width="20" x="32" y="44"></rect>
+<rect height="12" width="12" x="60" y="44"></rect>
+<rect height="8" width="32" x="80" y="44"></rect>
+<rect height="20" width="8" x="44" y="60"></rect>
+<rect height="8" width="24" x="60" y="64"></rect>
+<rect height="12" width="12" x="100" y="60"></rect>
+<rect height="8" width="16" x="44" y="88"></rect>
+<rect height="24" width="8" x="68" y="84"></rect>
+<rect height="8" width="28" x="84" y="88"></rect>
+<rect height="8" width="12" x="84" y="104"></rect>
+</svg>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wider uppercase mt-1">
+            Dynamic Token Refresh: 00:48s
+          </span>
+<span class="font-label-seat-tag text-label-seat-tag text-outline">
+            Present this at Hall Turnstiles or Handheld Scanner
+          </span>
+</div>
+<!-- Key Meta Spec Grid -->
+<div class="grid grid-cols-2 gap-space-sm text-left">
+<div class="p-space-xs bg-surface-container-high rounded-lg">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase block">Student Holder</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Aanya R. (23CS108)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">BE CSE · III Sem</span>
+</div>
+<div class="p-space-xs bg-surface-container-high rounded-lg">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase block">Allocated Seat</span>
+<span class="font-body-sm text-body-sm font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-base">chair</span>
+              Row B · Seat B4, B5
+            </span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Zone: Front Tier Left</span>
+</div>
+<div class="p-space-xs bg-surface-container-high rounded-lg">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase block">Reporting Time</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">09:45 AM IST</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Strict Entry Cutoff: 10:05 AM</span>
+</div>
+<div class="p-space-xs bg-surface-container-high rounded-lg">
+<span class="font-label-seat-tag text-label-seat-tag text-outline uppercase block">Campus Location</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">F-Block CS Lab 3</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Third Floor, North Wing</span>
+</div>
+</div>
+<!-- Terms / Notice Banner -->
+<div class="p-space-xs bg-surface-container-lowest/50 rounded-lg text-outline font-body-sm text-body-sm text-left flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-lg text-primary shrink-0">info</span>
+<span class="text-xs leading-relaxed">
+            Passes are non-transferable. Seats not occupied 10 minutes past commencement will automatically be released for spot registration waitlisters.
+          </span>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-space-xs">
+<button class="px-space-md py-2 bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-code-sm text-label-code-sm font-semibold rounded-xl transition-colors flex items-center gap-1.5" onclick="downloadSinglePass()" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+          Save PDF Pass
+        </button>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 bg-secondary-container hover:bg-secondary text-on-secondary-container font-label-code-sm text-label-code-sm font-bold rounded-xl transition-colors flex items-center gap-1.5 shadow-sm" onclick="addToWallet()" type="button">
+<span class="material-symbols-outlined text-base">wallet</span>
+            Add to Apple / Google Wallet
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Toast Notification Feedback Component -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-high text-on-surface shadow-2xl" id="toastNotification">
+<span class="material-symbols-outlined text-tertiary" id="toastIcon">check_circle</span>
+<span class="font-label-code-sm text-label-code-sm font-medium" id="toastMessage">Pass saved to downloads.</span>
+</div>
+</div>
+<script>
+  // Tab Filter Implementation
+  function filterBookings(category, btnElement) {
+    // Update tab visual states
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => {
+      tab.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+      tab.classList.add('text-on-surface-variant');
+    });
+
+    btnElement.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+    btnElement.classList.remove('text-on-surface-variant');
+
+    const cards = document.querySelectorAll('.booking-card');
+    const upcomingSection = document.getElementById('sectionUpcoming');
+    const pastSection = document.getElementById('sectionPast');
+
+    if (category === 'all') {
+      cards.forEach(c => c.style.display = 'flex');
+      if (upcomingSection) upcomingSection.style.display = 'flex';
+      if (pastSection) pastSection.style.display = 'flex';
+    } else if (category === 'upcoming') {
+      cards.forEach(c => {
+        if (c.classList.contains('upcoming')) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+      if (upcomingSection) upcomingSection.style.display = 'flex';
+      if (pastSection) pastSection.style.display = 'none';
+    } else if (category === 'completed') {
+      cards.forEach(c => {
+        if (c.classList.contains('completed')) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+      if (upcomingSection) upcomingSection.style.display = 'none';
+      if (pastSection) pastSection.style.display = 'flex';
+    } else if (category === 'cancelled') {
+      cards.forEach(c => {
+        if (c.classList.contains('cancelled')) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+      if (upcomingSection) upcomingSection.style.display = 'none';
+      if (pastSection) pastSection.style.display = 'flex';
+    }
+  }
+
+  // Modal Lifecycle
+  function openTicketModal(bookingId) {
+    const modal = document.getElementById('ticketModal');
+    const modalContent = document.getElementById('modalContent');
+    const modalTitle = document.getElementById('modalEventTitle');
+    const modalPassId = document.getElementById('modalPassId');
+
+    if (bookingId === 'EVH-2026-6140') {
+      modalTitle.innerText = "National 24-Hr Hackathon 2026: CodeSpark";
+      modalPassId.innerText = "PASS ID: EVH-2026-6140-TEAM-PSG";
+    } else {
+      modalTitle.innerText = "CSEA Tech Talk 2026: Quantum Computing & GenAI Frontiers";
+      modalPassId.innerText = "PASS ID: EVH-2026-9821-PSG";
+    }
+
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modalContent.classList.remove('scale-95');
+    modalContent.classList.add('scale-100');
+  }
+
+  function closeTicketModal() {
+    const modal = document.getElementById('ticketModal');
+    const modalContent = document.getElementById('modalContent');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modalContent.classList.remove('scale-100');
+    modalContent.classList.add('scale-95');
+  }
+
+  // Close modal on escape or outer backdrop click
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeTicketModal();
+  });
+
+  document.getElementById('ticketModal').addEventListener('click', function (e) {
+    if (e.target === this) closeTicketModal();
+  });
+
+  // Action Notification Toasts
+  function triggerToast(message, icon = 'check_circle') {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIco = document.getElementById('toastIcon');
+
+    toastMsg.innerText = message;
+    toastIco.innerText = icon;
+
+    toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }, 3200);
+  }
+
+  function triggerDownloadAll() {
+    triggerToast('Generating encrypted PDF passes bundle (2 passes)...', 'picture_as_pdf');
+  }
+
+  function triggerCalendarSync() {
+    triggerToast('Calendar sync (.ics) file exported successfully!', 'event_available');
+  }
+
+  function claimCertificate(bookingId) {
+    triggerToast('Certificate signed by CSEA HOD downloaded: ' + bookingId, 'workspace_premium');
+  }
+
+  function downloadSinglePass() {
+    triggerToast('High-resolution pass generated for gate scan.', 'download_done');
+  }
+
+  function addToWallet() {
+    triggerToast('Pass added to your digital wallet!', 'account_balance_wallet');
+  }
+
+  function showActionMenu(event, id) {
+    event.stopPropagation();
+    const action = confirm("Pass Options for " + id + ":\n\n- Click OK to copy shareable Guest Pass link\n- Or Cancel reservation via portal helpdesk");
+    if (action) {
+      navigator.clipboard.writeText("https://eventhub.psgtech.edu/pass/" + id);
+      triggerToast('Guest pass URL copied to clipboard!', 'content_copy');
+    }
+  }
+
+  function reRegisterPrompt(workshopName) {
+    alert("New batch registrations for '" + workshopName + "' open next Monday at 10:00 AM on EventHub.");
+  }
+</script></main><footer class="w-full bg-surface-container-lowest mt-auto shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1440px] mx-auto px-grid-margin-mobile md:px-grid-margin-tablet lg:px-grid-margin-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col items-center md:items-start gap-space-2xs"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary">EventHub</span><span class="font-label-code-sm text-label-code-sm text-outline">· Computer Science &amp; Engineering Association</span></div><p class="font-body-sm text-body-sm text-outline text-center md:text-left">Department of Computer Science &amp; Engineering, PSG College of Technology, Coimbatore</p></div><div class="flex items-center gap-space-md text-outline font-label-code-sm text-label-code-sm"><span class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded-full bg-tertiary"></span>Node Sync Active</span><span>© 2025 CSEA PSG Tech</span></div></div></footer></body></html>
